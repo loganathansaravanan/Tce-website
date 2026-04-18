@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Menu, X } from 'lucide-react';
 import TNCE_LOGO from '../assets/images/TNCE-logo.png';
 
 const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Facilities', href: '#facilities' },
-  { label: 'Programs', href: '#programs' },
-  { label: 'Alumni', href: '#alumni' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Facilities', href: '/#facilities' },
+  { label: 'Programs', href: '/#programs' },
+  { label: 'Alumni', href: '/#alumni' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 const Navbar = () => {
@@ -22,16 +24,16 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 shadow-md bg-white ${scrolled ? 'py-3' : 'py-5'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white ${scrolled ? 'py-3 shadow-md border-b border-slate-100' : 'py-5'}`}>
       <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2.5 group flex-shrink-0">
+        <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
           <img
             src={TNCE_LOGO}
             alt="TNCE Logo"
             className="h-14 w-auto"
           />
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-0.5">
@@ -46,7 +48,7 @@ const Navbar = () => {
           ))}
           <a
             href="#contact"
-            className="ml-3 bg-accent hover:bg-accent-hover text-primary font-bold text-[13px] uppercase px-6 py-2.5 rounded-full tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-accent/30 flex items-center gap-2 whitespace-nowrap"
+            className="ml-3 bg-accent hover:bg-accent-hover text-white font-medium text-[13px] uppercase px-6 py-2.5 rounded-full tracking-wide transition-all duration-300 shadow-sm hover:shadow-md flex items-center gap-2 whitespace-nowrap"
           >
             Apply Now <ArrowRight className="w-4 h-4" />
           </a>
@@ -63,7 +65,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden absolute top-full left-0 right-0 bg-primary/98 backdrop-blur-xl border-t border-white/10 transition-all duration-500 overflow-hidden ${
+        className={`lg:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-100 shadow-xl transition-all duration-500 overflow-hidden ${
           mobileOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
@@ -73,7 +75,7 @@ const Navbar = () => {
               key={link.label}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="text-white/80 hover:text-accent hover:bg-white/5 px-4 py-3 rounded-lg text-sm font-medium uppercase tracking-wide transition-all"
+              className="text-slate-700 hover:text-accent hover:bg-slate-50 px-4 py-3 rounded-lg text-sm font-medium uppercase tracking-wide transition-all"
             >
               {link.label}
             </a>
@@ -81,7 +83,7 @@ const Navbar = () => {
           <a
             href="#contact"
             onClick={() => setMobileOpen(false)}
-            className="mt-3 bg-accent text-primary font-bold text-sm uppercase px-7 py-3 rounded-full tracking-wide text-center"
+            className="mt-3 bg-accent text-white font-medium text-sm uppercase px-7 py-3 rounded-full tracking-wide text-center shadow-sm"
           >
             Apply Now
           </a>

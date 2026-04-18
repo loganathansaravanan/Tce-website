@@ -17,7 +17,7 @@ const DepartmentMarquee = () => {
   return (
     <section id="programs" className="py-24 bg-section-dark relative overflow-hidden">
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary rounded-full blur-[200px] opacity-30"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-300 rounded-full blur-[200px] opacity-20"></div>
 
       <div className="container mx-auto px-6 lg:px-16 mb-14 text-center relative z-10">
         <motion.span
@@ -42,7 +42,7 @@ const DepartmentMarquee = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-white/50 max-w-2xl mx-auto mt-8 text-base leading-relaxed"
+          className="text-white/70 max-w-2xl mx-auto mt-8 text-base leading-relaxed"
         >
           Discover your calling among our top-tier engineering and management departments, each designed to prepare you for the challenges of tomorrow.
         </motion.p>
@@ -58,9 +58,9 @@ const DepartmentMarquee = () => {
           {[...departments, ...departments].map((dept, i) => (
             <div
               key={i}
-              className="flex-shrink-0 mx-3 bg-white/[0.06] hover:bg-accent/20 border border-white/10 hover:border-accent/40 px-10 py-5 rounded-2xl cursor-pointer transition-all duration-300 group"
+              className="flex-shrink-0 mx-3 bg-white shadow-sm hover:shadow-md border border-slate-200 hover:border-accent px-10 py-5 rounded-2xl cursor-pointer transition-all duration-300 group"
             >
-              <span className="text-white/80 group-hover:text-accent font-semibold text-lg whitespace-nowrap tracking-wide transition-colors">
+              <span className="text-slate-700 group-hover:text-accent font-semibold text-lg whitespace-nowrap tracking-wide transition-colors">
                 {dept}
               </span>
             </div>

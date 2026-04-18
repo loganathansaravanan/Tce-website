@@ -3,14 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 @theme {
-  --color-primary: #002D62;
-  --color-primary-dark: #001a3a;
-  --color-accent: #eb5e34;
-  --color-accent-hover: #d4502a;
-  --color-dark: #1f272b;
-  --color-dark-lighter: #2a3439;
-  --color-background: #F8F9FA;
-  --color-section-dark: #0a1628;
+  --color-primary: #191414; /* Spotify Dark Core */
+  --color-primary-dark: #121212; /* Spotify Deepest Background */
+  --color-accent: #1DB954; /* Spotify Green */
+  --color-accent-hover: #1ed760; /* Spotify Lighter Green */
+  --color-dark: #121212; /* Pure dark for footers */
+  --color-dark-lighter: #282828; /* Spotify surface cards */
+  --color-background: #ffffff; /* Clean white background */
+  --color-section-dark: #121212; /* Dark sections for high contrast */
 
   --font-sans: 'Poppins', sans-serif;
 }
@@ -31,26 +31,30 @@
     @apply bg-background text-gray-700 font-sans antialiased overflow-x-hidden leading-relaxed;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-sans font-bold leading-tight;
   }
 }
 
 /* ── Video Hero Overlay ───────────────────────── */
 .hero-overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 45, 98, 0.85) 0%,
-    rgba(0, 20, 50, 0.92) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(25, 20, 20, 0.7) 0%,
+      rgba(18, 18, 18, 0.95) 100%);
 }
 
 /* ── Glassmorphic Nav ─────────────────────────── */
 .nav-scrolled {
-  background: rgba(0, 45, 98, 0.97);
-  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(25, 20, 20, 0.9);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* ── Feature Cards (overlapping hero) ─────────── */
@@ -58,16 +62,22 @@
   background: var(--color-primary);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
 .feature-card:hover {
   background: var(--color-accent);
   transform: translateY(-8px);
 }
+
 .feature-card:hover .feature-icon {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
 }
-.feature-card:hover h3,
+
+.feature-card:hover h3 {
+  color: white;
+}
 .feature-card:hover p {
-  color: var(--color-primary);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* ── Section Headings ─────────────────────────── */
@@ -77,6 +87,7 @@
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
+
 .section-heading::after {
   content: '';
   position: absolute;
@@ -95,6 +106,7 @@
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(0, 0, 0, 0.04);
 }
+
 .floating-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
@@ -102,10 +114,12 @@
 
 /* ── CTA Banner ───────────────────────────────── */
 .cta-banner {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #003d85 50%, var(--color-primary-dark) 100%);
+  background: linear-gradient(135deg, #282828 0%, #121212 100%);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 20px 40px rgba(29, 185, 84, 0.2);
 }
+
 .cta-banner::before {
   content: '';
   position: absolute;
@@ -113,12 +127,21 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255,184,28,0.08) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(29, 185, 84, 0.15) 0%, transparent 60%);
   animation: pulse-glow 8s ease-in-out infinite;
 }
+
 @keyframes pulse-glow {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.1); opacity: 1; }
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
 }
 
 /* ── Marquee ──────────────────────────────────── */
@@ -127,12 +150,19 @@
   width: max-content;
   animation: marquee-scroll 50s linear infinite;
 }
+
 .marquee-track:hover {
   animation-play-state: paused;
 }
+
 @keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* ── Gallery Rows ─────────────────────────────── */
@@ -141,32 +171,51 @@
   width: max-content;
   animation: gallery-left 45s linear infinite;
 }
-.gallery-row-left:hover { animation-play-state: paused; }
+
+.gallery-row-left:hover {
+  animation-play-state: paused;
+}
 
 .gallery-row-right {
   display: flex;
   width: max-content;
   animation: gallery-right 50s linear infinite;
 }
-.gallery-row-right:hover { animation-play-state: paused; }
+
+.gallery-row-right:hover {
+  animation-play-state: paused;
+}
 
 @keyframes gallery-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
+
 @keyframes gallery-right {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* ── Alumni Card ──────────────────────────────── */
 .alumni-card {
   @apply bg-white rounded-2xl overflow-hidden transition-all duration-500;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.03);
 }
+
 .alumni-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 25px 50px rgba(0, 45, 98, 0.15);
+  box-shadow: 0 25px 50px rgba(29, 185, 84, 0.15);
 }
 
 /* ── Contact Card ─────────────────────────────── */
@@ -175,16 +224,35 @@
   width: 60px;
   height: 60px;
 }
+
 .contact-icon-box:hover {
   background: var(--color-accent);
 }
 
 /* ── Scrollbar ────────────────────────────────── */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #f1f1f1; }
-::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
 
 /* ── Hide scrollbar utility ───────────────────── */
-.hide-scrollbar::-webkit-scrollbar { display: none; }
-.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

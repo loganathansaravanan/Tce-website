@@ -35,7 +35,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-accent text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6 max-w-4xl mx-auto"
+          className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6 max-w-4xl mx-auto drop-shadow-lg"
         >
           Tamilnadu College of Engineering
         </motion.h1>
@@ -44,7 +44,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-white/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed"
+          className="text-slate-600 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed"
         >
           Change the world through Engineering and your successful breakthroughs.
           <br className="hidden sm:block" />
@@ -59,13 +59,13 @@ const HeroSection = () => {
         >
           <a
             href="#contact"
-            className="bg-accent hover:bg-accent-hover text-primary font-bold text-sm uppercase px-10 py-4 rounded-full tracking-wider transition-all duration-300 hover:shadow-xl hover:shadow-accent/25 hover:-translate-y-1 flex items-center gap-2"
+            className="bg-accent hover:bg-accent-hover text-white font-medium text-sm uppercase px-10 py-4 rounded-full tracking-wider transition-all duration-300 hover:shadow-xl hover:shadow-accent/25 hover:-translate-y-1 flex items-center gap-2"
           >
             Explore Admissions <ArrowRight className="w-5 h-5" />
           </a>
           <a
             href="#about"
-            className="border-2 border-white/30 hover:border-accent text-white hover:text-accent font-semibold text-sm uppercase px-10 py-4 rounded-full tracking-wider transition-all duration-300 hover:-translate-y-1"
+            className="bg-white border border-slate-200 hover:border-accent text-slate-700 hover:text-accent font-medium text-sm uppercase px-10 py-4 rounded-full tracking-wider shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
           >
             Learn More
           </a>
