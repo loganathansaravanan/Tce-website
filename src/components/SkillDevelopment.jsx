@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Lightbulb, ArrowRight, Clock } from 'lucide-react';
-import ElectricianImg from '../assets/images/Electrician_Domestic.Webp';
+import ElectricianImg from '../assets/images/Electrician_Domestic.webp';
 import LEDImg from '../assets/images/LED_Light_Repair.jpg';
 
 const courses = [
