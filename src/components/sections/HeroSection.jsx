@@ -3,6 +3,11 @@ import { motion, useScroll, useTransform, useMotionTemplate, useSpring } from 'f
 import { ArrowRight } from 'lucide-react';
 import { SITE_CONFIG } from '../../constants';
 
+import ACADEMIC_IMG from '../../assets/Navbar_image/Academic.jpg';
+import TNCE_CODE_IMG from '../../assets/Navbar_image/TNCE_code.jpg';
+import NIRF_IMG from '../../assets/Navbar_image/nirf.png';
+import A_CARD_IMG from '../../assets/Navbar_image/A_certificate.jpg';
+
 import img1 from '../../assets/tce-hero-page/Tce-hero-page-1.jpg';
 import img2 from '../../assets/tce-hero-page/Tce-hero-page-2.jpg';
 import img3 from '../../assets/tce-hero-page/Tce-hero-page-3.jpg';
@@ -125,6 +130,19 @@ const HeroSection = () => {
             >
               Learn More
             </a>
+          </motion.div>
+
+          {/* Achievement Logos */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+            className="mt-14 sm:mt-20 flex flex-wrap justify-center items-center gap-6 sm:gap-10 opacity-90 bg-white/5 backdrop-blur-sm px-6 py-4 rounded-3xl border border-white/10 shadow-xl"
+          >
+            <img src={ACADEMIC_IMG} alt="Academic Excellence" className="h-10 sm:h-14 w-auto object-contain rounded bg-white p-1 shadow-sm" />
+            <img src={TNCE_CODE_IMG} alt="TNCE Code" className="h-10 sm:h-14 w-auto object-contain rounded bg-white p-1 shadow-sm" />
+            <img src={NIRF_IMG} alt="NIRF" className="h-10 sm:h-14 w-auto object-contain rounded bg-white p-1 shadow-sm" />
+            <img src={A_CARD_IMG} alt="A Certificate" className="h-10 sm:h-14 w-auto object-contain rounded bg-white p-1 shadow-sm" />
           </motion.div>
         </div>
 

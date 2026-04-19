@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import TNCE_LOGO from '../../assets/images/TNCE-logo.png';
+import TCE_LOGO from '../../assets/Navbar_image/TCE_logo.jpg';
 
 const Preloader = () => {
   const [loading, setLoading] = useState(true);
@@ -43,9 +43,9 @@ const Preloader = () => {
             <motion.img
               animate={{ scale: [0.95, 1.05, 0.95], opacity: [0.8, 1, 0.8] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-              src={TNCE_LOGO}
+              src={TCE_LOGO}
               alt="TNCE Logo"
-              className="w-16 h-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]"
+              className="w-16 h-16 object-cover rounded-full shadow-[0_0_15px_rgba(29,185,84,0.4)]"
             />
           </div>
 

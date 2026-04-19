@@ -95,6 +95,41 @@ const Footer = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Academic Departments Lists */}
+              <div className="bg-dark-lighter rounded-2xl p-6 md:p-8 mt-4">
+                <h3 className="text-white font-bold text-lg mb-6">Academic Departments</h3>
+                <div className="grid sm:grid-cols-2 gap-8">
+                  {/* Undergraduate */}
+                  <div>
+                    <h4 className="text-accent text-[11px] uppercase font-bold tracking-widest mb-4">Undergraduate</h4>
+                    <ul className="space-y-3">
+                      {NAV_LINKS.find(l => l.label === 'Academics')?.dropdown.columns[0].links.map((link, i) => (
+                         <li key={i}>
+                           <a href={link.href} className="text-white/60 hover:text-accent font-medium text-xs flex items-start gap-2 transition-colors">
+                             <ArrowRight className="w-3 h-3 mt-0.5 flex-shrink-0 text-accent/50" />
+                             <span className="leading-tight">{link.label}</span>
+                           </a>
+                         </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {/* Postgraduate */}
+                  <div>
+                    <h4 className="text-accent text-[11px] uppercase font-bold tracking-widest mb-4">Postgraduate</h4>
+                    <ul className="space-y-3">
+                      {NAV_LINKS.find(l => l.label === 'Academics')?.dropdown.columns[1].links.map((link, i) => (
+                         <li key={i}>
+                           <a href={link.href} className="text-white/60 hover:text-accent font-medium text-xs flex items-start gap-2 transition-colors">
+                             <ArrowRight className="w-3 h-3 mt-0.5 flex-shrink-0 text-accent/50" />
+                             <span className="leading-tight">{link.label}</span>
+                           </a>
+                         </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Right: Contact Form */}
