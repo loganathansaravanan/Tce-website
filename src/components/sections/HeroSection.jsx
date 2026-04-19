@@ -43,6 +43,79 @@ const ImageLayer = ({ img, index, progress, total }) => {
   );
 };
 
+const heroContents = [
+  {
+    tagline: SITE_CONFIG.tagline,
+    heading: SITE_CONFIG.name,
+    desc: <>{SITE_CONFIG.description}<br className="hidden sm:block" />{SITE_CONFIG.affiliation}</>
+  },
+  {
+    tagline: "Global Standards",
+    heading: "Gain International Acceptance",
+    desc: "TCE gears students apt with industry experience and exposure by practicing profession with confidence, courage and competence."
+  },
+  {
+    tagline: "Future Ready",
+    heading: "Excel with mastery!",
+    desc: "At TCE, we embrace technology and equip you to accentuate your career."
+  },
+  {
+    tagline: "New Era",
+    heading: "We lay the steps for your dreams",
+    desc: "Introducing B-Tech Artificial Intelligence and Data Science Course"
+  }
+];
+
+const ContentLayer = ({ content, index, progress, total }) => {
+  const step = 1 / Math.max(1, total - 1);
+  const center = index * step;
+  const halfStep = step / 2;
+
+  let inputScale, opacityScale, yScale;
+  
+  if (index === 0) {
+    inputScale = [0, center + halfStep];
+    opacityScale = [1, 0];
+    yScale = [0, -40];
+  } else if (index === total - 1) {
+    inputScale = [center - halfStep, center];
+    opacityScale = [0, 1];
+    yScale = [40, 0];
+  } else {
+    inputScale = [center - halfStep, center, center + halfStep];
+    opacityScale = [0, 1, 0];
+    yScale = [40, 0, -40];
+  }
+
+  const opacity = useTransform(progress, inputScale, opacityScale);
+  const y = useTransform(progress, inputScale, yScale);
+  const pointerEvents = useTransform(progress, (v) => 
+    (index === 0 && v < center + halfStep - 0.05) ||
+    (index === total - 1 && v > center - halfStep + 0.05) ||
+    (v > center - halfStep + 0.05 && v < center + halfStep - 0.05)
+    ? "auto" : "none"
+  );
+
+  return (
+    <motion.div 
+      style={{ opacity, y, pointerEvents }}
+      className="absolute inset-0 flex flex-col items-center justify-center text-center w-full px-4"
+    >
+      {content.tagline && (
+        <span className="block text-accent font-semibold text-sm sm:text-base uppercase tracking-[0.3em] mb-4 sm:mb-6">
+          {content.tagline}
+        </span>
+      )}
+      <h1 className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.2] sm:leading-[1.1] mb-6 max-w-4xl mx-auto drop-shadow-lg">
+        {content.heading}
+      </h1>
+      <p className="text-slate-600 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+        {content.desc}
+      </p>
+    </motion.div>
+  );
+};
+
 const HeroSection = () => {
   const containerRef = useRef(null);
 
@@ -83,34 +156,19 @@ const HeroSection = () => {
 
         {/* ── Content ──────────────────────────── */}
         <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-16 flex flex-col items-center justify-center text-center w-full">
-          <motion.span
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="block text-accent font-semibold text-sm sm:text-base uppercase tracking-[0.3em] mb-6"
-          >
-            {SITE_CONFIG.tagline}
-          </motion.span>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6 max-w-4xl mx-auto drop-shadow-lg"
-          >
-            {SITE_CONFIG.name}
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-slate-600 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed"
-          >
-            {SITE_CONFIG.description}
-            <br className="hidden sm:block" />
-            {SITE_CONFIG.affiliation}
-          </motion.p>
+          
+          {/* Dynamic Scroll Text Blocks */}
+          <div className="relative w-full h-[320px] sm:h-[350px] flex items-center justify-center mb-8">
+            {heroContents.map((content, i) => (
+              <ContentLayer 
+                key={i} 
+                content={content} 
+                index={i} 
+                progress={smoothProgress} 
+                total={heroContents.length} 
+              />
+            ))}
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 40 }}
