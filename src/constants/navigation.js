@@ -15,30 +15,30 @@ export const NAV_LINKS = [
         {
           title: 'UNDERGRADUATE',
           links: [
-            { label: 'Artificial Intelligence and Data Science', href: '#' },
-            { label: 'Automobile Engineering', href: '#' },
-            { label: 'Civil Engineering', href: '#' },
-            { label: 'Computer Science & Engineering', href: '#' },
-            { label: 'Electronics & Communications Engineering', href: '#' },
-            { label: 'Electrical & Electronics Engineering', href: '#' },
-            { label: 'Information Technology', href: '#' },
-            { label: 'Instrumentation & Control Engineering', href: '#' },
-            { label: 'Mechanical Engineering', href: '#' },
-            { label: 'Science & Humanities', href: '#' },
+            { label: 'Artificial Intelligence and Data Science', href: '/department/ai-ds' },
+            { label: 'Automobile Engineering', href: '/department/automobile' },
+            { label: 'Civil Engineering', href: '/department/civil' },
+            { label: 'Computer Science & Engineering', href: '/department/cse' },
+            { label: 'Electronics & Communications Engineering', href: '/department/ece' },
+            { label: 'Electrical & Electronics Engineering', href: '/department/eee' },
+            { label: 'Information Technology', href: '/department/it' },
+            { label: 'Instrumentation & Control Engineering', href: '/department/ice' },
+            { label: 'Mechanical Engineering', href: '/department/mech' },
+            { label: 'Science & Humanities', href: '/department/sh' },
           ],
         },
         {
           title: 'POSTGRADUATE',
           links: [
-            { label: 'ME - Computer Science & Engineering', href: '#' },
-            { label: 'ME - Structural Engineering', href: '#' },
-            { label: 'Master of Business Administration', href: '#' },
+            { label: 'ME - Computer Science & Engineering', href: '/department/me-cse' },
+            { label: 'ME - Structural Engineering', href: '/department/me-struct' },
+            { label: 'Master of Business Administration', href: '/department/mba' },
           ],
         },
         {
           title: 'PH.D',
           links: [
-            { label: 'Computer Science & Engineering', href: '#' },
+            { label: 'Computer Science & Engineering', href: '/department/phd-cse' },
           ],
           widgets: [
             {
