@@ -34,7 +34,7 @@ const GallerySection = () => {
 
   return (
     <>
-      <section className="py-24 bg-background relative overflow-hidden">
+      <section className="pt-40 lg:pt-52 pb-24 bg-background relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-16 mb-14 text-center">
           <SectionHeader
             label="Life at TCE"

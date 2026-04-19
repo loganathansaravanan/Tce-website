@@ -5,7 +5,7 @@ import CeoImg from '../../assets/images/photo/Dr_Anusha_ravi.jpeg';
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 bg-background relative overflow-hidden">
+    <section id="about" className="pt-40 lg:pt-52 pb-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-16">
         
         {/* Leadership Card */}
