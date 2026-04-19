@@ -1,56 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
-
-const testimonials = [
-  {
-    name: "Sanjay Kumar",
-    role: "B.E. Computer Science, Final Year",
-    content: "My experience at Tamilnadu College of Engineering has been phenomenal. The hands-on coding labs and incredibly supportive professors helped me secure an amazing placement well before graduation.",
-    image: "https://randomuser.me/api/portraits/men/32.jpg"
-  },
-  {
-    name: "Aisha Rahman",
-    role: "B.Tech Information Technology, 3rd Year",
-    content: "The cutting-edge skill development programs here bridge the gap between textbook theory and real-world execution. The campus environment is vibrant and constantly pushing us to innovate.",
-    image: "https://randomuser.me/api/portraits/women/44.jpg"
-  },
-  {
-    name: "Vikram Nathan",
-    role: "B.E. Mechanical Engineering, Alumni",
-    content: "TNCE gave me the perfect foundation. The practical exposure in the manufacturing workshops and the mentorship from top-tier faculty were the exact launchpad my career needed.",
-    image: "https://randomuser.me/api/portraits/men/85.jpg"
-  }
-];
+import { TESTIMONIALS } from '../../constants';
+import SectionHeader from '../common/SectionHeader';
 
 const StudentTestimonials = () => {
   return (
     <section className="py-24 bg-section-dark relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-16">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="block text-accent font-semibold text-sm uppercase tracking-[0.25em] mb-4"
-          >
-            Voices of TNCE
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold section-heading"
-          >
-            What Students Say About Us
-          </motion.h2>
-        </div>
+        <SectionHeader
+          label="Voices of TNCE"
+          heading="What Students Say About Us"
+          light
+        />
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {TESTIMONIALS.map((testimonial, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}

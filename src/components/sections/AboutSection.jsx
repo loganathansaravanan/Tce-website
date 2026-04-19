@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ChairmanImg from '../assets/images/photo/Dr_P_V_Ravi.jpeg';
-import CeoImg from '../assets/images/photo/Dr_Anusha_ravi.jpeg';
+import ChairmanImg from '../../assets/images/photo/Dr_P_V_Ravi.jpeg';
+import CeoImg from '../../assets/images/photo/Dr_Anusha_ravi.jpeg';
 
 const AboutSection = () => {
   return (

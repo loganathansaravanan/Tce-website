@@ -1,61 +1,20 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-import Alum1 from '../assets/images/alumini2-270x248.jpg';
-import Alum2 from '../assets/images/alumini3-scaled-270x248.jpg';
-import Alum3 from '../assets/images/alumini4-270x248.jpg';
-import Alum4 from '../assets/images/alumini5-270x248.jpg';
-import Alum5 from '../assets/images/alumini6-270x248.jpg';
-
-const alumni = [
-  {
-    name: 'Shilpa Rajith',
-    company: 'SAP',
-    role: 'Senior Software Engineer',
-    image: Alum1,
-    quote: 'TCE gave me the foundation to dream big and the skills to make it real. The faculty mentorship was exceptional.',
-  },
-  {
-    name: 'Sathya Priya',
-    company: 'Infoview Technologies',
-    role: 'Software Developer',
-    image: Alum2,
-    quote: 'The practical exposure and industry connections at TCE shaped my career trajectory from day one.',
-  },
-  {
-    name: 'LT Esan',
-    company: 'Indian Armed Forces',
-    role: 'Ex-Military Officer',
-    image: Alum3,
-    quote: 'Discipline, leadership, and technical excellence — TCE instilled values that served me throughout my military career.',
-  },
-  {
-    name: 'S. Dhivya',
-    company: 'TCS',
-    role: 'System Analyst',
-    image: Alum4,
-    quote: 'From campus placement to leading enterprise projects — my journey started at TCE with incredible support.',
-  },
-  {
-    name: 'R. Kumar',
-    company: 'Wipro',
-    role: 'Project Lead',
-    image: Alum5,
-    quote: 'The entrepreneurial spirit cultivated at TCE gave me the confidence to innovate and lead in the tech industry.',
-  },
-];
+import { ALUMNI } from '../../constants';
+import SectionHeader from '../common/SectionHeader';
 
 const AlumniCarousel = () => {
   const [current, setCurrent] = useState(0);
 
-  const prev = () => setCurrent((c) => (c === 0 ? alumni.length - 1 : c - 1));
-  const next = () => setCurrent((c) => (c === alumni.length - 1 ? 0 : c + 1));
+  const prev = () => setCurrent((c) => (c === 0 ? ALUMNI.length - 1 : c - 1));
+  const next = () => setCurrent((c) => (c === ALUMNI.length - 1 ? 0 : c + 1));
 
   // Show 3 cards on desktop, 1 on mobile
   const getVisibleAlumni = () => {
     const items = [];
     for (let i = 0; i < 3; i++) {
-      items.push(alumni[(current + i) % alumni.length]);
+      items.push(ALUMNI[(current + i) % ALUMNI.length]);
     }
     return items;
   };
@@ -67,26 +26,10 @@ const AlumniCarousel = () => {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px]"></div>
 
       <div className="container mx-auto px-6 lg:px-16 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="block text-accent font-semibold text-sm uppercase tracking-[0.25em] mb-4"
-          >
-            Success Stories
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-primary text-3xl sm:text-4xl md:text-5xl font-extrabold section-heading"
-          >
-            Star Alumni
-          </motion.h2>
-        </div>
+        <SectionHeader
+          label="Success Stories"
+          heading="Star Alumni"
+        />
 
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -142,7 +85,7 @@ const AlumniCarousel = () => {
 
           {/* Dots */}
           <div className="flex items-center gap-2">
-            {alumni.map((_, i) => (
+            {ALUMNI.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrent(i)}

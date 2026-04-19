@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import SectionHeader from '../common/SectionHeader';
 
 // Row 1 images
-import Img0 from '../assets/images/Events_0.jpeg';
-import Img2 from '../assets/images/Events_2.jpeg';
-import Img3 from '../assets/images/Events_3.jpeg';
-import Img4 from '../assets/images/Events_4.jpeg';
-import Img5 from '../assets/images/Events_5.jpeg';
-import Img6 from '../assets/images/Events_6.jpeg';
-import Img7 from '../assets/images/Events_7.jpeg';
-import Img8 from '../assets/images/Events_8.jpeg';
+import Img0 from '../../assets/images/Events_0.jpeg';
+import Img2 from '../../assets/images/Events_2.jpeg';
+import Img3 from '../../assets/images/Events_3.jpeg';
+import Img4 from '../../assets/images/Events_4.jpeg';
+import Img5 from '../../assets/images/Events_5.jpeg';
+import Img6 from '../../assets/images/Events_6.jpeg';
+import Img7 from '../../assets/images/Events_7.jpeg';
+import Img8 from '../../assets/images/Events_8.jpeg';
 
 // Row 2 images
-import Img9 from '../assets/images/Events_9.jpeg';
-import Img10 from '../assets/images/Events_10.jpeg';
-import Img11 from '../assets/images/Events_11.jpeg';
-import Img12 from '../assets/images/Events_12.jpeg';
-import Img14 from '../assets/images/Events_14.jpeg';
-import Img15 from '../assets/images/Events_15.jpeg';
-import ImgBanner1 from '../assets/images/TCEWebsiteBanner01.jpg';
-import ImgBanner2 from '../assets/images/TCEWebsiteBanner02.jpg';
+import Img9 from '../../assets/images/Events_9.jpeg';
+import Img10 from '../../assets/images/Events_10.jpeg';
+import Img11 from '../../assets/images/Events_11.jpeg';
+import Img12 from '../../assets/images/Events_12.jpeg';
+import Img14 from '../../assets/images/Events_14.jpeg';
+import Img15 from '../../assets/images/Events_15.jpeg';
+import ImgBanner1 from '../../assets/images/TCEWebsiteBanner01.jpg';
+import ImgBanner2 from '../../assets/images/TCEWebsiteBanner02.jpg';
 
 const row1Images = [Img0, Img2, Img3, Img4, Img5, Img6, Img7, Img8];
 const row2Images = [Img9, Img10, Img11, Img12, Img14, Img15, ImgBanner1, ImgBanner2];
@@ -35,23 +36,10 @@ const GallerySection = () => {
     <>
       <section className="py-24 bg-background relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-16 mb-14 text-center">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="block text-accent font-semibold text-sm uppercase tracking-[0.25em] mb-4"
-          >
-            Life at TCE
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-primary text-3xl sm:text-4xl md:text-5xl font-extrabold section-heading"
-          >
-            Campus Events & Memories
-          </motion.h2>
+          <SectionHeader
+            label="Life at TCE"
+            heading="Campus Events & Memories"
+          />
         </div>
 
         {/* Row 1 — scrolls left */}

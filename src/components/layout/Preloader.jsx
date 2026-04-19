@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import TNCE_LOGO from '../assets/images/TNCE-logo.png';
+import TNCE_LOGO from '../../assets/images/TNCE-logo.png';
 
 const Preloader = () => {
   const [loading, setLoading] = useState(true);
